@@ -20,7 +20,7 @@ def generate_keys(keysize=1024):
     n = p * q
     phi = (p - 1) * (q - 1)
 
-    # Найти e такой, чтобы 1 < e < phi и gcd(e, phi) = 1; обычно берется 65537
+    # Найти e такой, чтобы 1 < e < phi и НОД(e, phi) = 1; обычно берется 65537
     e = 65537
     while gcd(e, phi) != 1:
         e = random.randrange(2, phi)
@@ -35,7 +35,7 @@ def generate_keys(keysize=1024):
     return public_key, private_key
 
 
-# Функция для вычисления gcd
+# Функция для вычисления НОД
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
